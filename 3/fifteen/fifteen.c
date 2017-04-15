@@ -226,29 +226,76 @@ bool move(int tile)
 		}
 	}
 	
-	if( board[row-1][col] == tile   )
+	// 判斷行的範圍
+	if(row -1 < 0)
 	{
-		board[row-1][col] = 0;
-		board[row][col] = tile;
-		return true;
+		if(board[row+1][col] == tile)
+		{
+			board[row+1][col] = 0;
+			board[row][col] = tile;
+			return true;
+		}
 	}
-	else if( board[row][col-1] == tile )
+	else if(row+1 == d)
 	{
-		board[row][col-1] = 0;
-		board[row][col] = tile;
-		return true;
+		if(board[row-1][col] == tile)
+		{
+			board[row-1][col] = 0;
+			board[row][col] = tile;
+			return true;
+		}
 	}
-	else if( board[row+1][col] == tile )
+	// 上下自由移動
+	else
 	{
-		board[row+1][col] = 0;
-		board[row][col] = tile;
-		return true;
+		if(board[row+1][col] == tile)
+		{
+			board[row+1][col] = 0;
+			board[row][col] = tile;
+			return true;
+		}
+		else if(board[row-1][col] == tile)
+		{
+			board[row-1][col] = 0;
+			board[row][col] = tile;
+			return true;
+		}
 	}
-	else if( board[row][col+1] == tile )
+	
+	// 判斷列的範圍
+	if(col-1 < 0)
 	{
-		board[row][col+1] = 0;
-		board[row][col] = tile;
-		return true;
+		if(board[row][col+1]== tile)
+		{
+			board[row][col+1] = 0;
+			board[row][col] = tile;
+			return true;
+		}
+	}
+	else if(col+1 == d)
+	{
+		if(board[row][col-1] == tile)
+		{
+			board[row][col-1] = 0;
+			board[row][col] = tile;
+			return true;
+		}
+	}
+	// 左右自由移動
+	else
+	{
+		if(board[row][col+1] == tile)
+		{
+			board[row][col+1] = 0;
+			board[row][col] = tile;
+			return true;
+		}
+		else if(board[row][col-1] == tile)
+		{
+			board[row][col-1] = 0;
+			board[row][col] = tile;
+			return true;
+		}
 	}
 	
     return false;
