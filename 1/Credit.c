@@ -50,7 +50,7 @@ int main()
 	printf("number --- %lld\nLength --- %i\n",number,count);
 	
 	// Check Sum
-	if(r%2 != 0)
+	if(R%2 != 0)
 	{
 		printf("INVALID --- Number Error !!!\n");
 	}
